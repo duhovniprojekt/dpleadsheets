@@ -12,7 +12,7 @@ import { ref } from "vue";
 
 const SongPdfLink = ref('')
 
-const picksongPdf = (data) => {
+const picksongPdf = (data: string) => {
   console.log('clicked', data)
   SongPdfLink.value = data
 }

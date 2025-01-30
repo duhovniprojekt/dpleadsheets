@@ -2,11 +2,9 @@
 import { ref, onMounted, computed } from "vue";
 import { refDebounced } from '@vueuse/core';
 import { Badge } from "@/components/ui/badge";
-import { emit } from "process";
 
 const searchValue = ref('')
 const debouncedSearch = refDebounced(searchValue, 250)
-const selectedSong = ref(0)
 
 const songCollection = ref<Song[]>([]);
 
@@ -31,7 +29,7 @@ const emit = defineEmits<{
 
 onMounted(async () => {
   try {
-    const response = await fetch('https://scifidelityorchestra.com/~schef/duhovniprojet/songs_collection.json');
+    const response = await fetch('https://pitfarcenim.scifidelityorchestra.com/files/dpleadsheets/songs_collection.json');
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -88,7 +86,7 @@ const openSong = (link: string) => {
             {{ item.songbook }}
           </div>
           <div class="flex items-center gap-2 flex-wrap">
-            <Badge class="cursor-pointer" v-if="item.transposition_c" variant="secondary" @click="openSong(`transposition_eb/${item.transposition_c}`)">
+            <Badge class="cursor-pointer" v-if="item.transposition_c" variant="secondary" @click="openSong(`transposition_c/${item.transposition_c}`)">
                 Song in C
             </Badge>
             <Badge class="cursor-pointer" v-if="item.transposition_eb" variant="secondary" @click="openSong(`transposition_eb/${item.transposition_eb}`)">

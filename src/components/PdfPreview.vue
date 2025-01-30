@@ -17,7 +17,7 @@ const watermarkOptions = ref({
 });
 
 const completeUrl = computed(() => {
-  return `https://scifidelityorchestra.com/~schef/duhovniprojet/${props.pdfUrl}`
+  return `https://pitfarcenim.scifidelityorchestra.com/files/dpleadsheets/${props.pdfUrl}`
 })
 
 const { pdf, pages } = usePDF(completeUrl)
