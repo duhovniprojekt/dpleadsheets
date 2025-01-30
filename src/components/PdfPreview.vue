@@ -53,7 +53,7 @@ const nextPage = (type: string) => {
       @click="scalePdf('zoomout')" />
     <ChevronRight v-if="pages > 1 && page < pages" :size="40" stroke-width="2"
       class="p-1 rounded-md text-primary border-2 border-primary cursor-pointer" @click="nextPage('plus')" />
-    <ChevronLeft v-else :size="40" stroke-width="2"
+    <ChevronLeft v-else-if="page > 1" :size="40" stroke-width="2"
       class="p-1 rounded-md text-primary border-2 border-primary cursor-pointer" @click="nextPage('minus')" />
   </div>
 </template>
